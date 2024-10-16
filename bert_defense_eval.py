@@ -69,7 +69,6 @@ def main():
         default=None,
         type=str,
         required=True,
-
     )
 
     parser.add_argument(
@@ -94,7 +93,6 @@ def main():
         type=str,
         required=True,
         help="The folder that saves model checkpoints while training. not used when run testing only"
-
     )
 
     parser.add_argument(
@@ -102,7 +100,6 @@ def main():
         default=None,
         type=str,
         required=True,
-
     )
 
     parser.add_argument(
@@ -110,7 +107,6 @@ def main():
         default=None,
         type=int,
         required=True,
-
     )
 
     parser.add_argument(
@@ -118,7 +114,6 @@ def main():
         default=None,
         type=int,
         required=True,
-
     )
 
     parser.add_argument(
@@ -134,14 +129,12 @@ def main():
         default=None,
         type=int,
         required=True,
-
     )
     parser.add_argument(
         "--tensor_logging_dir",
         default=None,
         type=str,
         required=True,
-
     )
 
     parser.add_argument(
@@ -166,21 +159,23 @@ def main():
 
     with jsonlines.open(args.test_dir, 'r') as input_articles:
         for article in input_articles:
-            if (article['label'] == 'human'):
+            if (article['Label'] == 'human'):  
                 if (c_h < 4000):
                     c_h += 1
-                    all_articles_test.append(article['text'])
-                    labels.append(article['label'])
+                    all_articles_test.append(article['Poem'])  
+                    labels.append(article['Label'])
             else:
                 if (c_m < 4000):
                     c_m += 1
-                    all_articles_test.append(article['text'])
-                    labels.append(article['label'])
+                    all_articles_test.append(article['Poem'])
+                    labels.append(article['Label'])
 
     input_ids_test = []
     attention_masks_test = []
     for article in all_articles_test:
-        encoded_dict = tokenizer(article, return_tensors="pt", pad_to_max_length=True, truncation=True,
+        print(f"Processing article: {article}")
+        print(f"Type of article: {type(article)}")
+        encoded_dict = tokenizer(article, return_tensors="pt", padding='max_length', truncation=True,
                                  max_length=512)
         input_ids_test.append(encoded_dict['input_ids'])
         # And its attention mask (simply differentiates padding from non-padding).
@@ -215,11 +210,10 @@ def main():
         logging_steps=args.save_steps,
         logging_first_step=True,
         save_steps=args.save_steps,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         do_predict=True,
         eval_steps=50,
         logging_dir=args.tensor_logging_dir
-
     )
 
     # Setup logging
@@ -241,7 +235,6 @@ def main():
         data_collator=dummy_data_collector,
         compute_metrics=compute_metrics
     )
-
 
     with jsonlines.open(args.prediction_output, 'w') as pred_out:
         preds_man = trainer.predict(test_dataset)
