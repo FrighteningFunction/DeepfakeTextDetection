@@ -2,7 +2,6 @@
 # Activate the virtual environment
 .\venv\Scripts\Activate
 
-# Set the evaluation folder path
 $evaluationFolder = "./evaluation"
 
 # BERT-Defense evaluation script

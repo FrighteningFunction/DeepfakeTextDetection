@@ -27,7 +27,7 @@ from transformers import EarlyStoppingCallback
 
 random.seed(10)
 
-"""
+
 
 if torch.cuda.is_available():
     # Tell PyTorch to use the GPU.    
@@ -40,7 +40,7 @@ else:
     print('No GPU available, using the CPU instead.')
     device = torch.device("cpu")
 
-"""         
+         
 
 
 def dummy_data_collector(features):
