@@ -1,3 +1,5 @@
 evaluation/models
 fine_tune/models
 venv
+__pycache__
+'
