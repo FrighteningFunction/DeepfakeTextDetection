@@ -1,3 +1,5 @@
-No GPU available, using the CPU instead.
+There are 1 GPU(s) available.
+We will use the GPU: NVIDIA GeForce GTX 1660 Ti
 Loading BERT tokenizer...
 token len: 512
+{'loss': 0.7867, 'grad_norm': 19.711687088012695, 'learning_rate': 1.5772870662460568e-07, 'epoch': 0.01}

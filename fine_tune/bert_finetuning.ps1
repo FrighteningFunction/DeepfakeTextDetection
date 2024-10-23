@@ -14,7 +14,6 @@ $SAVE_NAME = "ai_poem_defense"
 
 # BERT-Defense finetuning script
 # Important parameter description can be found by ``python xx.py -h''
-$env:CUDA_VISIBLE_DEVICES = "1"
 Start-Process -NoNewWindow -FilePath "python" -ArgumentList @(
     "-u", "$fineTuneFolder/bert_fine_tune.py",
     "--cache_dir=$fineTuneFolder/models",
