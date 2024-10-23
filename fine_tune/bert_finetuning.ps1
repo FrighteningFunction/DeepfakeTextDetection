@@ -31,4 +31,4 @@ Start-Process -NoNewWindow -FilePath "python" -ArgumentList @(
     "--model_ckpt_path=$fineTuneFolder/checkpoint-10000",
     "--num_train_epochs=8",
     "--save_steps=125"
-) -RedirectStandardOutput "$fineTuneFolder/logs/$SAVE_NAME_output.txt" -NoNewWindow -Wait
+) -RedirectStandardOutput "$fineTuneFolder/logs/$SAVE_NAME_output.txt" -Wait

@@ -1,0 +1,3 @@
+No GPU available, using the CPU instead.
+Loading BERT tokenizer...
+token len: 512
