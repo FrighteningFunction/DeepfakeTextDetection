@@ -1,5 +1,6 @@
 evaluation/models
 fine_tune/models
+fine_tune/checkpoint-10000
 venv
 __pycache__
 '
