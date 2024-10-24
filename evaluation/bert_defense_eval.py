@@ -159,16 +159,16 @@ def main():
 
     with jsonlines.open(args.test_dir, 'r') as input_articles:
         for article in input_articles:
-            if (article['Label'] == 'human'):  
+            if (article['label'] == 'human'):  
                 if (c_h < 4000):
                     c_h += 1
-                    all_articles_test.append(article['Poem'])  
-                    labels.append(article['Label'])
+                    all_articles_test.append(article['text'])  
+                    labels.append(article['label'])
             else:
                 if (c_m < 4000):
                     c_m += 1
-                    all_articles_test.append(article['Poem'])
-                    labels.append(article['Label'])
+                    all_articles_test.append(article['text'])
+                    labels.append(article['label'])
 
     input_ids_test = []
     attention_masks_test = []
