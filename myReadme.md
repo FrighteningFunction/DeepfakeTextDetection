@@ -22,3 +22,9 @@ The results for previous assessments and model evals are in the results folder.
 The second dataset is v1_new : reason for this bc this uses the 3-3-3 prompt strategy too, but is of a completely different dataset then what the model was trained on.
 
 Then v2 dataset uses the "generation from generated title" heuristic, and is by its design very different from the v1 model training dataset.
+
+Each dataset , test_v1 and test_v2 are found int the datasets folder.
+
+## Model location
+
+My model, Poem_Defense can be found in fine_tune\ckpts\checkpoint-1056 for now.
