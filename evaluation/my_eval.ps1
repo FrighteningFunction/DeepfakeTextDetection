@@ -11,10 +11,10 @@ $datasetFolder = "./datasets"
 Start-Process -NoNewWindow -FilePath "python" -ArgumentList @(
     "-u", "$evaluationFolder/bert_defense_eval.py",
     "--cache_dir=$evaluationFolder/models",
-    "--test_dir=$datasetFolder/test_v1.jsonl", #change this
-    "--prediction_output=$evaluationFolder/EVAL_Poem_Defense_test_v2.jsonl", #and this
+    "--test_dir=$datasetFolder/shakespeare_test.jsonl", #change this
+    "--prediction_output=$evaluationFolder/EVAL_Poem_Defense_test_shakespeare.jsonl", #and this
     "--output_dir=$evaluationFolder/ckpts",
-    "--logging_file=$evaluationFolder/logging/EVAL_joint_poem_dataset.jsonl",
+    "--logging_file=$evaluationFolder/logging/EVAL_Poem_Defense_shakespeare.jsonl",
     "--tensor_logging_dir=$evaluationFolder/tf_logs",
     "--train_batch_size=2",
     "--val_batch_size=32",
